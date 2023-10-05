@@ -1,13 +1,32 @@
 [data-pie-menu] {
-
+    position: relative;
+    height: 300px;
+    width: 300px;
+    background-color: #efefef;
+    border-radius: 100%;
+    list-style-type: none;
 }
 
 [data-pie-item] {
     --pie-item-rotation: calc(var(--pie-item-angle) * var(--pie-item-index));
+    position: absolute;
     transform-origin: 100% 100%;
     transform: rotate(var(--pie-item-rotation)) skew(var(--pie-item-angle));
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 [data-pie-item-content] {
-    transform: rotate(var(--pie-item-rotation));
+    display: block;
+    transform: skew(calc(var(--pie-item-angle) * -1)) rotate(calc(var(--pie-item-rotation) * -1));
+}
+
+[data-pie-item-active="true"] {
+    background-color: grey;
 }
