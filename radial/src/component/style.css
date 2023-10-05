@@ -1,0 +1,13 @@
+[data-pie-menu] {
+
+}
+
+[data-pie-item] {
+    --pie-item-rotation: calc(var(--pie-item-angle) * var(--pie-item-index));
+    transform-origin: 100% 100%;
+    transform: rotate(var(--pie-item-rotation)) skew(var(--pie-item-angle));
+}
+
+[data-pie-item-content] {
+    transform: rotate(var(--pie-item-rotation));
+}
