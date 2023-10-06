@@ -48,6 +48,9 @@ const Menu = (props: MenuProps) => {
         <div data-pie-menu
         style={{ "--pie-x": position?.x + "px", "--pie-y": position?.y + "px" }as React.CSSProperties}
         >
+            <div data-pie-label>
+                {activeItem !== null && children[activeItem]?.props.title}
+            </div>
             <ul onMouseMove={(e) => handleSetActive(e)}>
             {children?.map((child, index) => (
                 React.cloneElement(child, {index, angle, isActive: index === activeItem}) 

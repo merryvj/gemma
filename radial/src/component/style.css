@@ -2,7 +2,6 @@
     position: fixed;
     left: var(--pie-x, 0);
     top: var(--pie-y, 0);
-    background-color: beige;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
@@ -16,9 +15,11 @@
     user-select: none;
     opacity: 1;
     transform: translate(-50%, -50%); 
+    animation: appear 250ms both;
 }
 
 [data-pie-menu] > ul {
+    background-color: beige;
     pointer-events: auto;
     -webkit-font-smoothing: antialiased;
     padding: 0;
@@ -34,6 +35,22 @@
     user-select: none;
 }
 
+[data-pie-label] {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: inherit;
+    background-color: aliceblue;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 [data-pie-item] {
     --pie-item-rotation: calc(var(--pie-item-angle) * var(--pie-item-index));
     --pie-item-skew: calc(90deg - var(--pie-item-angle));
@@ -61,4 +78,15 @@
 
 [data-pie-item-active="true"] {
     background-color: rgb(189, 189, 157);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 }

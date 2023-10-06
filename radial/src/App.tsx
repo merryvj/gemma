@@ -7,13 +7,16 @@ function App() {
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
 
   const handleMenuClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = e;
-    setClickPosition({ x: clientX, y: clientY });
-    setShowMenu(true);
+    if (!showMenu) {
+      const { clientX, clientY } = e;
+      setClickPosition({ x: clientX, y: clientY });
+      setShowMenu(true);
+    }
   };
 
   const handleAction = () => {
     console.log('pressed');
+    setShowMenu(false);
   };
 
   return (
