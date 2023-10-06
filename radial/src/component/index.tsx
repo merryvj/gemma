@@ -1,11 +1,17 @@
 import React, {useState} from "react";
 import "./style.css"
 
-type MenuProps = {
+interface MenuProps {
     children: React.ReactElement<MenuItemProps>[];
+    position?: Position;
 }
 
-type MenuItemProps = {
+type Position = {
+    x: number;
+    y: number;
+}
+
+interface MenuItemProps {
     title?: string;
     action?: () => void;
     index?: number;
@@ -26,7 +32,7 @@ export const MenuItem = (props: MenuItemProps) => {
 }
 
 const Menu = (props: MenuProps) => {
-    const {children} = props;
+    const {children, position} = props;
     const angle = 360 / children.length;
     const [activeItem, setActiveItem] = useState<number | null>(null);
 
@@ -39,11 +45,16 @@ const Menu = (props: MenuProps) => {
     }
 
     return (
-        <ul data-pie-menu onMouseMove={(e) => handleSetActive(e)}>
+        <div data-pie-menu
+        style={{ "--pie-x": position?.x + "px", "--pie-y": position?.y + "px" }as React.CSSProperties}
+        >
+            <ul onMouseMove={(e) => handleSetActive(e)}>
             {children?.map((child, index) => (
                 React.cloneElement(child, {index, angle, isActive: index === activeItem}) 
             ))}
-        </ul>
+            </ul>
+        </div>
+        
     )
 }
 

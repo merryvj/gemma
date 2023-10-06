@@ -1,32 +1,64 @@
 [data-pie-menu] {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    background-color: #efefef;
+    position: fixed;
+    left: var(--pie-x, 0);
+    top: var(--pie-y, 0);
+    background-color: beige;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    pointer-events: auto;
+    width: 250px;
+    height: 250px;
     border-radius: 100%;
-    list-style-type: none;
+    z-index: 5;
+    touch-action: none;
+    cursor: move;
+    user-select: none;
+    opacity: 1;
+    transform: translate(-50%, -50%); 
+}
+
+[data-pie-menu] > ul {
+    pointer-events: auto;
+    -webkit-font-smoothing: antialiased;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    overflow: hidden;
+    position: relative;
+    cursor: move;
+    user-select: none;
 }
 
 [data-pie-item] {
     --pie-item-rotation: calc(var(--pie-item-angle) * var(--pie-item-index));
-    position: absolute;
-    transform-origin: 100% 100%;
-    transform: rotate(var(--pie-item-rotation)) skew(var(--pie-item-angle));
+    --pie-item-skew: calc(90deg - var(--pie-item-angle));
+    transform: rotate(var(--pie-item-rotation)) skew(var(--pie-item-skew));
+    pointer-events: auto;
+    list-style: none;
+    cursor: move;
+    user-select: none;
     position: absolute;
     bottom: 50%;
     right: 50%;
+    font-size: 24px;
     width: 50%;
     height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transform-origin: 100% 100%;
+    overflow: hidden;
+    transition: background 250ms ease 0s;
 }
 
 [data-pie-item-content] {
     display: block;
-    transform: skew(calc(var(--pie-item-angle) * -1)) rotate(calc(var(--pie-item-rotation) * -1));
+    text-align: center;
+    transform: translate(50px) skew(calc(var(--pie-item-skew) * -1)) rotate(calc(var(--pie-item-rotation) * -1));
 }
 
 [data-pie-item-active="true"] {
-    background-color: grey;
+    background-color: rgb(189, 189, 157);
 }
