@@ -23,10 +23,11 @@ interface MenuItemProps {
 }
 
 export const MenuItem = (props: MenuItemProps) => {
-    const {children, action, index, angle, isActive} = props;
+    const {children, label, action, index, angle, isActive} = props;
     
     return (
         <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg"} as React.CSSProperties}
+        role="menuitem" aria-label={label}
         onMouseUp={action} onClick={action}
         >
             <div data-pie-item-content>{children}</div>
@@ -57,8 +58,8 @@ const Menu = (props: MenuProps) => {
                 <div data-pie-label>
                     {activeItem !== null && children[activeItem]?.props.label}
                 </div>
-                <ul onMouseMove={(e) => handleSetActive(e)}>
-                {children?.map((child, index) => (
+                <ul onMouseMove={(e) => handleSetActive(e)} role="menu" aria-label="radial menu" tabIndex={0}>
+                {children?.map((child, index) => ( 
                     React.cloneElement(child, {index, angle, isActive: index === activeItem}) 
                 ))}
                 </ul>
