@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Menu, { MenuItem } from './component';
+import Menu, { MenuItem } from './PieMenu';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -21,17 +21,18 @@ function App() {
 
   return (
     <>
-      <div className='content' onClick={handleMenuClick}>
-        {showMenu && (
-          <Menu position={clickPosition}>
-            <MenuItem title="hello" action={handleAction} />
-            <MenuItem title="whoop" action={handleAction} />
-            <MenuItem title="scoop" action={handleAction} />
-            <MenuItem title="whoop" action={handleAction} />
-            <MenuItem title="scoop" action={handleAction} />
-            <MenuItem title="whoop" action={handleAction} />
-          </Menu>
-        )}
+      <div className='content' onMouseDown={handleMenuClick}>
+        <Menu isOpen={showMenu} position={clickPosition} kind="wheel">
+            <MenuItem label="Test" action={handleAction}>
+              <span>:D</span>
+            </MenuItem>
+            <MenuItem label="Ho" action={handleAction}>
+              <span>:D</span>
+            </MenuItem>
+            <MenuItem label="He" action={handleAction}>
+              <span>:D</span>
+            </MenuItem>
+        </Menu>
       </div>
     </>
   );

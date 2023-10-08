@@ -19,7 +19,6 @@
 }
 
 [data-pie-menu] > ul {
-    background-color: beige;
     pointer-events: auto;
     -webkit-font-smoothing: antialiased;
     padding: 0;
@@ -33,6 +32,15 @@
     position: relative;
     cursor: move;
     user-select: none;
+}
+
+[data-pie-kind="bubble"] [data-pie-item-content] {
+    background-color: aqua;
+    border-radius: 100%;
+}
+
+[data-pie-kind="bubble"] [data-pie-item] {
+    background: none;
 }
 
 [data-pie-label] {
@@ -51,6 +59,7 @@
     align-items: center;
     justify-content: center;
 }
+
 [data-pie-item] {
     --pie-item-rotation: calc(var(--pie-item-angle) * var(--pie-item-index));
     --pie-item-skew: calc(90deg - var(--pie-item-angle));
@@ -62,18 +71,24 @@
     position: absolute;
     bottom: 50%;
     right: 50%;
+    background-color: antiquewhite;
     font-size: 24px;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     transform-origin: 100% 100%;
     overflow: hidden;
     transition: background 250ms ease 0s;
 }
 
 [data-pie-item-content] {
-    display: block;
+    position: absolute;
     text-align: center;
-    transform: translate(50px) skew(calc(var(--pie-item-skew) * -1)) rotate(calc(var(--pie-item-rotation) * -1));
+    height: 40px;
+    width: 40px;
+    bottom: 25%;
+    right: 25%;
+    display: block;
+    transform: skew(calc(var(--pie-item-skew) * -1)) rotate(calc(var(--pie-item-rotation) * -1));
 }
 
 [data-pie-item-active="true"] {

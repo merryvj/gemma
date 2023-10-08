@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import "./style.css"
 
 interface MenuProps {
+    isOpen: boolean;
     children: React.ReactElement<MenuItemProps>[];
     position?: Position;
+    kind?: "wheel" | "bubble";
 }
 
 type Position = {
@@ -12,7 +14,8 @@ type Position = {
 }
 
 interface MenuItemProps {
-    title?: string;
+    label?: string;
+    children?: React.ReactElement<HTMLElement>;
     action?: () => void;
     index?: number;
     angle?: number;
@@ -20,19 +23,19 @@ interface MenuItemProps {
 }
 
 export const MenuItem = (props: MenuItemProps) => {
-    const {title, action, index, angle, isActive} = props;
-
+    const {children, action, index, angle, isActive} = props;
+    
     return (
         <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg"} as React.CSSProperties}
-        onClick={action}
+        onMouseUp={action} onClick={action}
         >
-            <span data-pie-item-content>{title}</span>
+            <div data-pie-item-content>{children}</div>
         </li>
     )
 }
 
 const Menu = (props: MenuProps) => {
-    const {children, position} = props;
+    const {isOpen, children, position, kind} = props;
     const angle = 360 / children.length;
     const [activeItem, setActiveItem] = useState<number | null>(null);
 
@@ -45,18 +48,23 @@ const Menu = (props: MenuProps) => {
     }
 
     return (
-        <div data-pie-menu
-        style={{ "--pie-x": position?.x + "px", "--pie-y": position?.y + "px" }as React.CSSProperties}
-        >
-            <div data-pie-label>
-                {activeItem !== null && children[activeItem]?.props.title}
+        <>
+        {isOpen && (
+            <div data-pie-menu
+            data-pie-kind={kind}
+            style={{ "--pie-x": position?.x + "px", "--pie-y": position?.y + "px" }as React.CSSProperties}
+            >
+                <div data-pie-label>
+                    {activeItem !== null && children[activeItem]?.props.label}
+                </div>
+                <ul onMouseMove={(e) => handleSetActive(e)}>
+                {children?.map((child, index) => (
+                    React.cloneElement(child, {index, angle, isActive: index === activeItem}) 
+                ))}
+                </ul>
             </div>
-            <ul onMouseMove={(e) => handleSetActive(e)}>
-            {children?.map((child, index) => (
-                React.cloneElement(child, {index, angle, isActive: index === activeItem}) 
-            ))}
-            </ul>
-        </div>
+        )}
+        </>
         
     )
 }
