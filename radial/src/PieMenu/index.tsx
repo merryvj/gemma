@@ -17,18 +17,19 @@ interface MenuItemProps {
     label?: string;
     children?: React.ReactElement<HTMLElement>;
     action?: () => void;
-    index: number;
+    close?: () => void;
+    index?: number;
     angle?: number;
     isActive?: boolean;
 }
 
 export const MenuItem = (props: MenuItemProps) => {
-    const {children, label, action, index, angle, isActive} = props;
+    const {children, label, action, close, index, angle, isActive} = props;
     
     return (
         <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg"} as React.CSSProperties}
         role="menuitem" aria-label={label}
-        onMouseUp={action} onClick={action}
+        onMouseEnter={action} onMouseUp={close} onClick={close}
         tabIndex={index + 1}
         >
             <div data-pie-item-content>{children}</div>
@@ -37,7 +38,7 @@ export const MenuItem = (props: MenuItemProps) => {
 }
 
 const Menu = (props: MenuProps) => {
-    const {isOpen, children, position, kind} = props;
+    const {isOpen = false, children, position, kind = "wheel"} = props;
     const angle = 360 / children.length;
     const [activeItem, setActiveItem] = useState<number | null>(null);
 
@@ -67,7 +68,6 @@ const Menu = (props: MenuProps) => {
             </div>
         )}
         </>
-        
     )
 }
 
