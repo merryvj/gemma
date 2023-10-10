@@ -6,8 +6,8 @@
     -webkit-font-smoothing: antialiased;
     box-sizing: border-box;
     pointer-events: auto;
-    width: 275px;
-    height: 275px;
+    width: var(--radius-outer, 300px);
+    height: var(--radius-outer, 300px);
     border-radius: 100%;
     z-index: 5;
     touch-action: none;
@@ -53,8 +53,8 @@
 [data-pie-label] {
     font-weight: bold;
     position: absolute;
-    height: 32%;
-    width: 32%;
+    height: var(--radius-inner, 30%);
+    width: var(--radius-inner, 30%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -81,9 +81,6 @@
     right: 50%;
     width: 50%;
     height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     transform-origin: 100% 100%;
     overflow: hidden;
     transition: background 250ms ease 0s;
@@ -91,11 +88,20 @@
 }
 
 [data-pie-item-content] {
-    min-height: 32px;
-    min-width: 32px;
-    display: block;
-    transform: translate(40%, 40%) skew(calc(var(--pie-item-skew) * -1)) rotate(calc(var(--pie-item-rotation) * -1));
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    height: var(--offset);
+    display: flex;
+    align-items: center;
+    transform: skew(calc(var(--pie-item-skew) * -1)) rotate(calc(var(--pie-item-angle) * -1));;
 }
+
+[data-pie-item-content] > * {
+    margin-bottom: calc(var(--offset) * 0.2);
+    transform: (calc(var(--pie-item-rotation) * -1 + var(--pie-item-angle)));
+}
+
 
 [data-pie-item-active="true"] {
     background-color: rgb(189, 189, 157);
