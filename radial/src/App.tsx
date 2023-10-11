@@ -9,6 +9,7 @@ const Icon = ({ color }: { color: string }) => {
     //   <circle cx="16" cy="16" r="14" stroke="white" strokeWidth={3} fill={color} ></circle>
     // </svg>
     <div className='icon' style={{width: "32px", height: "32px", backgroundColor: color , borderRadius: "100%", border: "solid 3px white", boxShadow: "0 0 3px 0px rgba(0, 0, 0, 0.1)"}}>
+    Hello
     </div>
   )
 }
@@ -51,19 +52,29 @@ function App() {
       code: "#A58F86"
     },
     {
-      label: "indigo",
-      code: "#4f455c"
+      label: "walnut",
+      code: "#A58F86"
     },
     {
-      label: "peach",
-      code: "#e4d2d8"
+      label: "green",
+      code: "#BED3CA"
     },
+    {
+      label: "walnut",
+      code: "#A58F86"
+    },
+    {
+      label: "walnut",
+      code: "#A58F86"
+    },
+    
   ]
+
 
   return (
     <>
       <div className='content' onMouseDown={handleMenuClick}>
-        <Menu isOpen={showMenu} position={clickPosition} kind="wheel" outerRadius={275} innerRadius={100}>
+        <Menu isOpen={showMenu} position={clickPosition} kind="bubble" outerRadius={275} innerRadius={100}>
           {
             colors.map(color => (
               <MenuItem label={color.label} action={() => handleAction(color.code)} close={handleClose}>

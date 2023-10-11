@@ -8,6 +8,7 @@ interface MenuProps {
     kind?: "wheel" | "bubble";
     outerRadius?: number;
     innerRadius?: number;
+    backgroundColor?: string;
 }
 
 type Position = {

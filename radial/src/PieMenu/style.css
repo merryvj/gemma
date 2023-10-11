@@ -46,7 +46,7 @@
 }
 
 [data-pie-kind="bubble"] [data-pie-item-active]:hover > * > *{
-    transform: scale(1.25);
+    scale: 1.2;
 }
 
 
@@ -94,12 +94,17 @@
     height: var(--offset);
     display: flex;
     align-items: center;
-    transform: skew(calc(var(--pie-item-skew) * -1)) rotate(calc(var(--pie-item-angle) * -1));;
+    justify-content: center;
+    transform: skew(calc(var(--pie-item-skew) * -1)) rotate(calc(90deg + var(--pie-item-angle)/2));
+    /* transform: rotate(calc(var(--pie-item-angle) * -.5)); */
+    /* transform: skew(calc(var(--pie-item-skew) * -1)); */
 }
 
 [data-pie-item-content] > * {
-    margin-bottom: calc(var(--offset) * 0.2);
-    transform: (calc(var(--pie-item-rotation) * -1 + var(--pie-item-angle)));
+    transform: rotate(calc(var(--pie-item-rotation) * -1)) rotate(calc(270deg + var(--pie-item-angle)/2 * -1));
+    /* margin-bottom: calc(var(--offset) * 0.2); */
+    /* transform: rotate(var(--pie-item-rotation)); */
+    /* transform: (calc(var(--pie-item-rotation) * -1 + var(--pie-item-angle))); */
 }
 
 
