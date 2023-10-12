@@ -9,6 +9,7 @@ interface MenuProps {
     outerRadius?: number;
     innerRadius?: number;
     backgroundColor?: string;
+    activeColor?: string;
 }
 
 type Position = {
@@ -26,18 +27,19 @@ interface MenuItemProps {
     isActive?: boolean;
     length?: number;
     offset?: number;
+    backgroundColor?: string;
+    activeColor?: string;
 }
 
 
-
 export const MenuItem = (props: MenuItemProps) => {
-    const {children, label, action, close, index, isActive, angle, length, offset} = props;
+    const {children, label, action, close, index, isActive, angle, length, offset, backgroundColor, activeColor} = props;
     const angleInRadians = (angle || 0)/2 * (Math.PI / 180);
     const offsetX = Math.sin(angleInRadians) * (offset ?? 0);
     const offsetY = Math.cos(angleInRadians) * (offset ?? 0);
 
     return (
-        <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg", "--pie-item-length": length + "px", "--pie-item-offset-x": offsetX + "px", "--pie-item-offset-y": offsetY + "px"} as React.CSSProperties}
+        <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg", "--pie-item-length": length + "px", "--pie-item-offset-x": offsetX + "px", "--pie-item-offset-y": offsetY + "px" , backgroundColor: backgroundColor, "--active-color": activeColor} as React.CSSProperties}
         role="menuitem" aria-label={label}
         onMouseEnter={action} onMouseUp={close} onClick={close}
         tabIndex={index + 1}
@@ -48,7 +50,7 @@ export const MenuItem = (props: MenuItemProps) => {
 }
 
 const Menu = (props: MenuProps) => {
-    const {isOpen = false, children, position, kind = "wheel", outerRadius = 300, innerRadius = 100} = props;
+    const {isOpen = false, children, position, kind = "wheel", outerRadius = 300, innerRadius = 100, backgroundColor, activeColor} = props;
     const [activeItem, setActiveItem] = useState<number | null>(null);
     const angle = 360 / children.length;
     
@@ -77,7 +79,9 @@ const Menu = (props: MenuProps) => {
                         angle,
                         isActive: index === activeItem,
                         length: (outerRadius - innerRadius) / 2,
-                        offset: innerRadius/2
+                        offset: innerRadius/2,
+                        backgroundColor: backgroundColor || child.props.backgroundColor || "#efefef",
+                        activeColor: activeColor || child.props.activeColor || "#d6d6d6"
                     })
                 ))}
                 </ul>

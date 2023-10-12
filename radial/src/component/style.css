@@ -85,7 +85,6 @@
     transform-origin: 100% 100%;
     overflow: hidden;
     transition: background 250ms ease 0s;
-    background-color: aliceblue;
 }
 
 [data-pie-item-content] {
@@ -108,7 +107,7 @@
 
 
 [data-pie-item-active="true"] {
-    background-color: rgb(189, 189, 157);
+    background-color: var(--active-color) !important;
 }
 
 @keyframes appear {

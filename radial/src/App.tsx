@@ -46,11 +46,30 @@ function App() {
       label: "green",
       code: "#BED3CA"
     },
-
-
-
-    
-    
+    {
+      label: "plum",
+      code: "#C099A0"
+    },
+    {
+      label: "plum",
+      code: "#C099A0"
+    },
+    {
+      label: "plum",
+      code: "#C099A0"
+    },
+    {
+      label: "ash",
+      code: "#C0C6C9"
+    },
+    {
+      label: "green",
+      code: "#BED3CA"
+    },
+    {
+      label: "plum",
+      code: "#C099A0"
+    },
   ]
 
   return (
@@ -59,7 +78,7 @@ function App() {
         <Menu isOpen={showMenu} position={clickPosition} kind="wheel" outerRadius={300} innerRadius={100}>
           {
             colors.map(color => (
-              <MenuItem label={color.label} action={() => handleAction(color.code)} close={handleClose}>
+              <MenuItem activeColor={color.code} label={color.label} action={() => handleAction(color.code)} close={handleClose}>
                 <Icon color={color.code}/>
               </MenuItem>
             ))
