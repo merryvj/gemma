@@ -24,30 +24,34 @@ interface MenuItemProps {
     index?: number;
     angle?: number;
     isActive?: boolean;
+    length?: number;
     offset?: number;
 }
 
 
 
 export const MenuItem = (props: MenuItemProps) => {
-    const {children, label, action, close, index, isActive, angle, offset} = props;
+    const {children, label, action, close, index, isActive, angle, length, offset} = props;
+    const angleInRadians = (angle || 0)/2 * (Math.PI / 180);
+    const offsetX = Math.sin(angleInRadians) * (offset ?? 0);
+    const offsetY = Math.cos(angleInRadians) * (offset ?? 0);
 
     return (
-        <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg"} as React.CSSProperties}
+        <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg", "--pie-item-length": length + "px", "--pie-item-offset-x": offsetX + "px", "--pie-item-offset-y": offsetY + "px"} as React.CSSProperties}
         role="menuitem" aria-label={label}
         onMouseEnter={action} onMouseUp={close} onClick={close}
         tabIndex={index + 1}
         >
-            <div data-pie-item-content style={{"--offset": offset + "px"} as React.CSSProperties}>{children}</div>
+            <div data-pie-item-content>{children}</div>
         </li>
     )
 }
 
 const Menu = (props: MenuProps) => {
     const {isOpen = false, children, position, kind = "wheel", outerRadius = 300, innerRadius = 100} = props;
-    const angle = 360 / children.length;
     const [activeItem, setActiveItem] = useState<number | null>(null);
-
+    const angle = 360 / children.length;
+    
     const handleSetActive = (e: React.MouseEvent<HTMLUListElement, MouseEvent>) => {
         const target = e.target as HTMLElement;
         if (target.hasAttribute("data-pie-item")) {
@@ -68,7 +72,13 @@ const Menu = (props: MenuProps) => {
                 </div>
                 <ul onMouseMove={(e) => handleSetActive(e)} role="menu" aria-label="radial menu">
                 {children?.map((child, index) => ( 
-                    React.cloneElement(child, {index, angle, isActive: index === activeItem, offset: (outerRadius - innerRadius)/2}) 
+                    React.cloneElement(child, {
+                        index,
+                        angle,
+                        isActive: index === activeItem,
+                        length: (outerRadius - innerRadius) / 2,
+                        offset: innerRadius/2
+                    })
                 ))}
                 </ul>
             </div>

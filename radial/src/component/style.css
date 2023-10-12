@@ -51,6 +51,7 @@
 
 
 [data-pie-label] {
+    opacity: 1;
     font-weight: bold;
     position: absolute;
     height: var(--radius-inner, 30%);
@@ -72,15 +73,15 @@
 [data-pie-item] {
     --pie-item-rotation: calc(var(--pie-item-angle) * var(--pie-item-index));
     --pie-item-skew: calc(90deg - var(--pie-item-angle));
-    transform: rotate(var(--pie-item-rotation)) skew(var(--pie-item-skew));
+    transform:  rotate(var(--pie-item-rotation)) skew(var(--pie-item-skew));
     pointer-events: auto;
     list-style: none;
     user-select: none;
     position: absolute;
     bottom: 50%;
     right: 50%;
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     transform-origin: 100% 100%;
     overflow: hidden;
     transition: background 250ms ease 0s;
@@ -89,22 +90,20 @@
 
 [data-pie-item-content] {
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    height: var(--offset);
+    height: var(--pie-item-length);
+    bottom: 0px;
+    right: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: skew(calc(var(--pie-item-skew) * -1)) rotate(calc(90deg + var(--pie-item-angle)/2));
-    /* transform: rotate(calc(var(--pie-item-angle) * -.5)); */
-    /* transform: skew(calc(var(--pie-item-skew) * -1)); */
+    transform-origin: bottom right;
+    transform: skew(calc(var(--pie-item-skew) * -1)) rotate(calc(-90deg + var(--pie-item-angle)/2)) translate(50%, -50px)
+
 }
 
-[data-pie-item-content] > * {
-    transform: rotate(calc(var(--pie-item-rotation) * -1)) rotate(calc(270deg + var(--pie-item-angle)/2 * -1));
-    /* margin-bottom: calc(var(--offset) * 0.2); */
-    /* transform: rotate(var(--pie-item-rotation)); */
-    /* transform: (calc(var(--pie-item-rotation) * -1 + var(--pie-item-angle))); */
+[data-pie-item-content] > *{
+    position: absolute;
+    transform: rotate(calc(var(--pie-item-rotation) * -1)) rotate(calc(90deg + var(--pie-item-angle)/2 * -1));
 }
 
 

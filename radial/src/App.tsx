@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Menu, { MenuItem } from './PieMenu';
-
+import Menu, {MenuItem} from './component';
 
 const Icon = ({ color }: { color: string }) => {
   return (
@@ -47,34 +46,17 @@ function App() {
       label: "green",
       code: "#BED3CA"
     },
-    {
-      label: "walnut",
-      code: "#A58F86"
-    },
-    {
-      label: "walnut",
-      code: "#A58F86"
-    },
-    {
-      label: "green",
-      code: "#BED3CA"
-    },
-    {
-      label: "walnut",
-      code: "#A58F86"
-    },
-    {
-      label: "walnut",
-      code: "#A58F86"
-    },
+
+
+
+    
     
   ]
-
 
   return (
     <>
       <div className='content' onMouseDown={handleMenuClick}>
-        <Menu isOpen={showMenu} position={clickPosition} kind="bubble" outerRadius={275} innerRadius={100}>
+        <Menu isOpen={showMenu} position={clickPosition} kind="wheel" outerRadius={300} innerRadius={100}>
           {
             colors.map(color => (
               <MenuItem label={color.label} action={() => handleAction(color.code)} close={handleClose}>
