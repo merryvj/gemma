@@ -39,7 +39,7 @@ export const MenuItem = (props: MenuItemProps) => {
     const offsetY = Math.cos(angleInRadians) * (offset ?? 0);
 
     return (
-        <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg", "--pie-item-length": length + "px", "--pie-item-offset-x": offsetX + "px", "--pie-item-offset-y": offsetY + "px" , backgroundColor: backgroundColor, "--active-color": activeColor} as React.CSSProperties}
+        <li data-pie-item data-pie-item-index={index} data-pie-item-active={isActive} style={{"--pie-item-index": index, "--pie-item-angle": angle+"deg", "--pie-item-length": length + "px", "--pie-item-offset-x": offsetX + "px", "--pie-item-offset-y": offsetY + "px" , "--bg-color": backgroundColor, "--active-color": activeColor} as React.CSSProperties}
         role="menuitem" aria-label={label}
         onMouseEnter={action} onMouseUp={close} onClick={close}
         tabIndex={index + 1}

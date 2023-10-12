@@ -38,7 +38,7 @@
 
 
 [data-pie-kind="bubble"] [data-pie-item] {
-    background: none;
+    background: none !important;
 }
 
 [data-pie-kind="bubble"] [data-pie-item-active] > * > *{
@@ -85,6 +85,7 @@
     transform-origin: 100% 100%;
     overflow: hidden;
     transition: background 250ms ease 0s;
+    background-color: var(--bg-color);
 }
 
 [data-pie-item-content] {
