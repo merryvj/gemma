@@ -17,9 +17,7 @@ const Icon = ({ color }: { color: string }) => {
         border: 'solid 3px white',
         boxShadow: '0 0 3px 0px rgba(0, 0, 0, 0.1)'
       }}
-    >
-      Hello
-    </div>
+    ></div>
   );
 };
 function App() {
@@ -57,12 +55,16 @@ function App() {
       code: '#BED3CA'
     },
     {
-      label: 'plum',
-      code: '#C099A0'
+      label: 'walnut',
+      code: '#A58F86'
     },
     {
-      label: 'plum',
-      code: '#C099A0'
+      label: 'indigo',
+      code: '#4f455c'
+    },
+    {
+      label: 'peach',
+      code: '#e4d2d8'
     },
     {
       label: 'plum',
@@ -77,8 +79,16 @@ function App() {
       code: '#BED3CA'
     },
     {
-      label: 'plum',
-      code: '#C099A0'
+      label: 'walnut',
+      code: '#A58F86'
+    },
+    {
+      label: 'indigo',
+      code: '#4f455c'
+    },
+    {
+      label: 'peach',
+      code: '#e4d2d8'
     }
   ];
 
@@ -88,9 +98,9 @@ function App() {
         <Menu
           isOpen={showMenu}
           position={clickPosition}
-          kind="wheel"
+          kind="bubble"
           outerRadius={300}
-          innerRadius={100}
+          innerRadius={150}
         >
           {colors.map((color) => (
             <MenuItem

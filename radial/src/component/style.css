@@ -15,6 +15,12 @@
   opacity: 1;
   transform: translate(-50%, -50%);
   animation: appear 250ms both;
+  box-shadow: 1px 0.9px 2.3px -3px rgba(20, 10, 0, 0.02),
+    2.4px 2.2px 5.5px -3px rgba(20, 10, 0, 0.025),
+    4.5px 4.1px 10.4px -3px rgba(20, 10, 0, 0.03),
+    8px 7.4px 18.5px -3px rgba(20, 10, 0, 0.035),
+    15px 13.8px 34.7px -3px rgba(20, 0, 10, 0.04),
+    36px 33px 83px -3px rgba(20, 10, 0, 0.1);
 }
 
 [data-pie-menu] > ul {
@@ -32,6 +38,9 @@
   user-select: none;
 }
 
+[data-pie-kind='bubble'] {
+  box-shadow: none;
+}
 [data-pie-kind='bubble'] [data-pie-item-content] {
   transition: 0.3s;
 }

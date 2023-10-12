@@ -132,8 +132,8 @@ const Menu = (props: MenuProps) => {
                 length: (outerRadius - innerRadius) / 2,
                 offset: innerRadius / 2,
                 backgroundColor:
-                  backgroundColor || child.props.backgroundColor || '#efefef',
-                activeColor: activeColor || child.props.activeColor || '#d6d6d6'
+                  backgroundColor || child.props.backgroundColor || '#fafafa',
+                activeColor: activeColor || child.props.activeColor || '#efefef'
               })
             )}
           </ul>
