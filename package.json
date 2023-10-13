@@ -1,7 +1,7 @@
 {
   "name": "gemma-menu",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,8 +19,8 @@
     "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
     "@vitejs/plugin-react": "^4.0.3",
     "c8": "^8.0.1",
     "eslint": "^8.51.0",
@@ -48,7 +48,16 @@
   },
   "keywords": [
     "react",
-    "components"
+    "components",
+    "context",
+    "menu",
+    "radial",
+    "pie",
+    "wheel",
+    "UI"
+  ],
+  "files": [
+    "dist"
   ],
   "author": "Mary Jiang",
   "license": "MIT",
