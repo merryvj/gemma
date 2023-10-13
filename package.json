@@ -1,14 +1,15 @@
 {
   "name": "gemma-menu",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepack": "json -f package.json -I -e"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "jsdom": "^22.1.0",
+    "json": "^11.0.0",
     "react-test-renderer": "^18.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
@@ -36,13 +38,12 @@
     "vitest": "^0.34.6"
   },
   "description": "A pie/radial menu component for React",
-  "main": "./dist/gemma.umd.cjs",
-  "module": "./dist/gemma.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/gemma-menu.umd.js",
+  "module": "./dist/gemma-menu.es.js",
   "exports": {
     ".": {
-      "import": "./dist/gemma.js",
-      "require": "./dist/gemma.umd.cjs"
+      "import": "./dist/gemma-menu.es.js",
+      "require": "./dist/gemma-menu.umd.js"
     }
   },
   "repository": {
