@@ -1,7 +1,7 @@
 {
   "name": "gemma-menu",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -40,15 +40,12 @@
     "vitest": "^0.34.6"
   },
   "description": "A pie/radial menu component for React",
-  "main": "./dist/gemma-menu.umd.js",
-  "module": "./dist/gemma-menu.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/gemma-menu.es.js",
-      "require": "./dist/gemma-menu.umd.js"
-    }
-  },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/merryvj/gemma.git"
@@ -62,9 +59,6 @@
     "pie",
     "wheel",
     "UI"
-  ],
-  "files": [
-    "dist"
   ],
   "author": "Mary Jiang",
   "license": "MIT",
