@@ -3,7 +3,12 @@
 np
 Gemma is a wheel/radial/pie menu component for React 🍭
 
-## Install
+
+https://github.com/merryvj/gemma/assets/41601131/3adda17a-59e7-4d8c-a5fd-d14d48cd9764
+
+
+
+### Install
 
 ```
 npm i gemma-menu
