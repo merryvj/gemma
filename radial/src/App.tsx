@@ -89,6 +89,54 @@ function App() {
     {
       label: 'peach',
       code: '#e4d2d8'
+    },
+    {
+      label: 'plum',
+      code: '#C099A0'
+    },
+    {
+      label: 'ash',
+      code: '#C0C6C9'
+    },
+    {
+      label: 'green',
+      code: '#BED3CA'
+    },
+    {
+      label: 'walnut',
+      code: '#A58F86'
+    },
+    {
+      label: 'indigo',
+      code: '#4f455c'
+    },
+    {
+      label: 'peach',
+      code: '#e4d2d8'
+    },
+    {
+      label: 'plum',
+      code: '#C099A0'
+    },
+    {
+      label: 'ash',
+      code: '#C0C6C9'
+    },
+    {
+      label: 'green',
+      code: '#BED3CA'
+    },
+    {
+      label: 'walnut',
+      code: '#A58F86'
+    },
+    {
+      label: 'indigo',
+      code: '#4f455c'
+    },
+    {
+      label: 'peach',
+      code: '#e4d2d8'
     }
   ];
 
@@ -98,9 +146,9 @@ function App() {
         <Menu
           isOpen={showMenu}
           position={clickPosition}
-          kind="bubble"
-          outerRadius={300}
-          innerRadius={150}
+          kind="wheel"
+          outerRadius={500}
+          innerRadius={300}
         >
           {colors.map((color) => (
             <MenuItem
