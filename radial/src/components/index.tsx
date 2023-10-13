@@ -1,36 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-
-interface MenuProps {
-  isOpen: boolean;
-  children: React.ReactElement<MenuItemProps>[];
-  position?: Position;
-  kind?: 'wheel' | 'bubble';
-  outerRadius?: number;
-  innerRadius?: number;
-  backgroundColor?: string;
-  activeColor?: string;
-}
-
-type Position = {
-  x: number;
-  y: number;
-};
-
-interface MenuItemProps {
-  label?: string;
-  children?: React.ReactElement<HTMLElement>;
-  action?: () => void;
-  close?: () => void;
-  index?: number;
-  angle?: number;
-  isActive?: boolean;
-  length?: number;
-  offset?: number;
-  backgroundColor?: string;
-  activeColor?: string;
-}
-
+import { MenuProps, MenuItemProps } from './types';
 export const MenuItem = (props: MenuItemProps) => {
   const {
     children,
@@ -66,14 +36,14 @@ export const MenuItem = (props: MenuItemProps) => {
       onMouseEnter={action}
       onMouseUp={close}
       onClick={close}
-      tabIndex={index + 1}
+      tabIndex={index !== undefined ? index + 1 : undefined}
     >
       <div data-pie-item-content>{children}</div>
     </li>
   );
 };
 
-const Menu = (props: MenuProps) => {
+export const Menu = (props: MenuProps) => {
   const {
     isOpen = false,
     children,
@@ -142,5 +112,3 @@ const Menu = (props: MenuProps) => {
     </>
   );
 };
-
-export default Menu;

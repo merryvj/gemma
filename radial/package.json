@@ -1,5 +1,5 @@
 {
-  "name": "radial",
+  "name": "gemma-menu",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,22 +7,50 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@testing-library/dom": "^9.3.3",
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
+    "c8": "^8.0.1",
+    "eslint": "^8.51.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "jsdom": "^22.1.0",
+    "react-test-renderer": "^18.2.0",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
-  }
+    "vite": "^4.4.5",
+    "vitest": "^0.34.6"
+  },
+  "description": "A pie/radial menu component for React",
+  "main": "./dist/gemma.umd.ts",
+  "module": "./dist/gemma.es.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/gemma.es.ts",
+      "require": "./dist/gemma.umd.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merryvj/gemma.git"
+  },
+  "keywords": [
+    "react",
+    "components"
+  ],
+  "author": "Mary Jiang",
+  "license": "MIT",
+  "homepage": "https://github.com/merryvj/gemma"
 }

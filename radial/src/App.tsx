@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Menu, { MenuItem } from './component';
+import { Menu, MenuItem } from './components';
 
 const Icon = ({ color }: { color: string }) => {
   return (
