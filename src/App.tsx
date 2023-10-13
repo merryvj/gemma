@@ -150,8 +150,9 @@ function App() {
           outerRadius={500}
           innerRadius={300}
         >
-          {colors.map((color) => (
+          {colors.map((color, index) => (
             <MenuItem
+              key={index}
               activeColor={color.code}
               label={color.label}
               action={() => handleAction(color.code)}
