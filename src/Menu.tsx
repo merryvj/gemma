@@ -1,49 +1,24 @@
 import React, { useState } from 'react';
 import './style.css';
-import { MenuProps, MenuItemProps } from './types';
-export const MenuItem = (props: MenuItemProps) => {
-  const {
-    children,
-    label,
-    action,
-    close,
-    index,
-    isActive,
-    angle,
-    length,
-    offset,
-    backgroundColor,
-    activeColor
-  } = props;
+import { MenuItemProps } from './MenuItem';
 
-  return (
-    <li
-      data-pie-item
-      data-pie-item-index={index}
-      data-pie-item-active={isActive}
-      style={
-        {
-          '--pie-item-index': index,
-          '--pie-item-angle': angle + 'deg',
-          '--pie-item-length': length + 'px',
-          '--pie-item-offset': offset + 'px',
-          '--bg-color': backgroundColor,
-          '--active-color': activeColor
-        } as React.CSSProperties
-      }
-      role="menuitem"
-      aria-label={label}
-      onMouseEnter={action}
-      onMouseUp={close}
-      onClick={close}
-      tabIndex={index !== undefined ? index + 1 : undefined}
-    >
-      <div data-pie-item-content>{children}</div>
-    </li>
-  );
+export interface MenuProps {
+  isOpen: boolean;
+  children: React.ReactElement<MenuItemProps>[];
+  position?: Position;
+  kind?: 'wheel' | 'bubble';
+  outerRadius?: number;
+  innerRadius?: number;
+  backgroundColor?: string;
+  activeColor?: string;
+}
+
+type Position = {
+  x: number;
+  y: number;
 };
 
-export const Menu = (props: MenuProps) => {
+const Menu = (props: MenuProps) => {
   const {
     isOpen = false,
     children,
@@ -112,3 +87,5 @@ export const Menu = (props: MenuProps) => {
     </>
   );
 };
+
+export default Menu;

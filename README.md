@@ -1,14 +1,15 @@
 # Gemma Menu
 
+np
 Gemma is a wheel/radial/pie menu component for React 🍭
 
-### Install
+## Install
 
 ```
 npm i gemma-menu
 ```
 
-### Usage
+## Usage
 
 Simple example:
 
@@ -48,9 +49,9 @@ function MyComponent() {
 }
 ```
 
-### API Reference
+## API Reference
 
-#### Menu Props:
+### Menu Props:
 
 | Name              | Type    | Default | Description                                                                  |
 | ----------------- | ------- | ------- | ---------------------------------------------------------------------------- |
@@ -61,11 +62,11 @@ function MyComponent() {
 | `backgroundColor` | string  | #efefef | background color of the menu (can be overwritten by MenuItem)                |
 | `activeColor`     | string  | #d6d6d6 | color of the selected menu item (can be overwritten by MenuItem)             |
 
-#### MenuItem Props
+### MenuItem Props
 
-| Name              | Type     | Default | Description                                                                                                                                                                    |
-| ----------------- | -------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `label`           | string   | N/A     | Visual label associated with the menu item (displays in center of menu)                                                                                                        |
-| `action`          | function | N/A     | Function called when the menu item is clicked. The function while recieve 3 parameters (the event object, the index of menu item, and it's label data passed from props.label) |
-| `backgroundColor` | string   | #efefef | background color of this menu item (inherited from Menu if not specified)                                                                                                      |
-| `activeColor`     | string   | #d6d6d6 | background color of this menu item when selected (inherited from Menu if not specified)                                                                                        |
+| Name              | Type     | Default | Description                                                                                                                                                                   |
+| ----------------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`           | string   | N/A     | Visual label associated with the menu item (displays in center of menu)                                                                                                       |
+| `action`          | function | N/A     | Function called when the menu item is clicked. The function while recieve 3 parameters (the event object, the index of menu item, and its label data passed from props.label) |
+| `backgroundColor` | string   | #efefef | background color of this menu item (inherited from Menu if not specified)                                                                                                     |
+| `activeColor`     | string   | #d6d6d6 | background color of this menu item when selected (inherited from Menu if not specified)                                                                                       |
