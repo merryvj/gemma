@@ -1,6 +1,5 @@
 # Gemma Menu
 
-np
 Gemma is a wheel/radial/pie menu component for React 🍭
 
 
