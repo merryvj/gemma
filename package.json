@@ -1,7 +1,7 @@
 {
   "name": "gemma-menu",
   "private": false,
-  "version": "0.0.73",
+  "version": "0.0.74",
   "description": "A pie/radial menu component for React",
   "license": "MIT",
   "author": "Mary Jiang",
