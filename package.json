@@ -1,6 +1,6 @@
 {
   "name": "gemma-menu",
-  "version": "0.0.78",
+  "version": "0.0.781",
   "description": "A pie/radial menu component for React",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
@@ -19,7 +19,7 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
- },
+  },
   "scripts": {
     "rollup-build-lib": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
