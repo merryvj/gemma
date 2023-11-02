@@ -1,6 +1,6 @@
 {
   "name": "gemma-menu",
-  "version": "0.0.77",
+  "version": "0.0.78",
   "description": "A pie/radial menu component for React",
   "dependencies": {
     "abab": "^2.0.6",
