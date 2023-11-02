@@ -2,49 +2,8 @@
   "name": "gemma-menu",
   "private": false,
   "version": "0.0.72",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build:tsup": "tsup src/index.ts",
-    "build": "tsc && vite build",
-    "build:types": "dts-bundle-generator --config ./dts-bundle-generator.config.ts",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "test": "vitest run",
-    "prepack": "json -f package.json -I -e",
-    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
-  },
-  "dependencies": {
-    "dts-bundle-generator": "^8.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "vite-plugin-css-injected-by-js": "^3.3.0"
-  },
-  "devDependencies": {
-    "@testing-library/dom": "^9.3.3",
-    "@testing-library/react": "^14.0.0",
-    "@types/node": "^20.8.5",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.5",
-    "@vitejs/plugin-react": "^4.0.3",
-    "c8": "^8.0.1",
-    "copyfiles": "^2.4.1",
-    "eslint": "^8.51.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.3",
-    "jsdom": "^22.1.0",
-    "json": "^11.0.0",
-    "react-test-renderer": "^18.2.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "vite-plugin-dts": "^3.6.0",
-    "vitest": "^0.34.6"
-  },
   "description": "A pie/radial menu component for React",
+  "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -54,6 +13,28 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/merryvj/gemma.git"
+  },
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "tsup src/index.ts --format esm,cjs,iife",
+    "prepack": "json -f package.json -I -e",
+    "copy-files": "copyfiles -u 1 src/**/*.css dist/"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.13",
+    "@types/react": "^18.0.26",
+    "copyfiles": "^2.4.1",
+    "esbuild": "^0.19.5",
+    "prettier": "^2.8.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^6.4.0",
+    "turbo": "1.6",
+    "typescript": "^4.8.4"
   },
   "keywords": [
     "react",
