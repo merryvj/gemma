@@ -1,11 +1,12 @@
 import dts from 'vite-plugin-dts';
 import path from 'path';
 import react from '@vitejs/plugin-react';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
   base: './',
-  plugins: [dts({ rollupTypes: true }), react()],
+  plugins: [dts({ rollupTypes: true }), react(), cssInjectedByJsPlugin()],
   build: {
     sourcemap: true,
     lib: {
