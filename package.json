@@ -1,6 +1,7 @@
 {
   "name": "gemma-menu",
-  "version": "0.0.781",
+  "version": "0.0.783",
+  "private": false,
   "description": "A pie/radial menu component for React",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
