@@ -1,8 +1,5 @@
 {
-  "compilerOptions": {
-    "jsx": "react",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "lib": ["es2015", "dom"]
-  }
+  // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
+  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "include": ["src", "types"]
 }
