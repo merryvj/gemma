@@ -63,46 +63,6 @@ function App() {
       code: '#4f455c'
     },
     {
-      label: 'peach',
-      code: '#e4d2d8'
-    },
-    {
-      label: 'plum',
-      code: '#C099A0'
-    },
-    {
-      label: 'ash',
-      code: '#C0C6C9'
-    },
-    {
-      label: 'green',
-      code: '#BED3CA'
-    },
-    {
-      label: 'walnut',
-      code: '#A58F86'
-    },
-    {
-      label: 'indigo',
-      code: '#4f455c'
-    },
-    {
-      label: 'peach',
-      code: '#e4d2d8'
-    },
-    {
-      label: 'plum',
-      code: '#C099A0'
-    },
-    {
-      label: 'ash',
-      code: '#C0C6C9'
-    },
-    {
-      label: 'green',
-      code: '#BED3CA'
-    },
-    {
       label: 'walnut',
       code: '#A58F86'
     },
